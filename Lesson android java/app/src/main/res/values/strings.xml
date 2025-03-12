@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Fist Application</string>
+    <string name="hello_world">Hello world</string>
+    <string name="sample_text">Hello</string>
+    <string name="first_btn">Первая кнопка</string>
+    <string name="second_btn">Вторая кнопка</string>
+</resources>
