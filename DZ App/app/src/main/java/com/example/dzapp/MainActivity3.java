@@ -28,13 +28,6 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     ((AnimationDrawable) imgHand.getDrawable()).start();
-
-//                Animation out = AnimationUtils.loadAnimation(AnimactionActivity.this, R.anim.anim_alpha);
-//                Animation out = AnimationUtils.loadAnimation(getBaseContext(), R.anim.anim_alpha);
-//                imageView.startAnimation(out);
-
-//                Animation translate = AnimationUtils.loadAnimation(AnimactionActivity.this, R.anim.anim_translate);
-//                imageView.startAnimation(translate);
             }
         });
 
