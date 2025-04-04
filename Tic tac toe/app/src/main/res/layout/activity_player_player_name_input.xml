@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainfon"
+    tools:context=".PlayerNameInput">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="302dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/app_name"
+            android:text="Enter players name"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="32sp" />
+
+        <EditText
+            android:id="@+id/player_name_one"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints="no"
+            android:background="@drawable/button_stile"
+            android:backgroundTint="#7C7C7C"
+            android:drawableStart="@drawable/ic_xicon"
+            android:ems="10"
+            android:hint="@string/enter_player_one_name"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/player_name_two"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:ems="10"
+            android:hint="@string/enter_player_two_name"
+            android:autofillHints="no"
+            android:background="@drawable/button_stile"
+            android:backgroundTint="#7C7C7C"
+            android:drawableStart="@drawable/ic_oicon"
+            android:layout_marginTop="16dp"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/butStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_stile"
+            android:backgroundTint="@color/black"
+            android:text="Start Game"
+            android:textColor="#CC000000" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
