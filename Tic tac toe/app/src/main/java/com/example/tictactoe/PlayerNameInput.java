@@ -31,7 +31,7 @@ public class PlayerNameInput extends AppCompatActivity {
                 String getPlayerNameTwo = playerNameTwo.getText().toString();
 
                 if(getPlayerNameOne.isEmpty() || getPlayerNameTwo.isEmpty()){
-                    Toast.makeText(PlayerNameInput.this, "Pleas enter player name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PlayerNameInput.this, "Please enter player name", Toast.LENGTH_SHORT).show();
                 }else{
                     Intent intent = new Intent(PlayerNameInput.this,ScreenGamePlayerPlayer.class);
                     intent.putExtra("playerNameOne", getPlayerNameOne);
