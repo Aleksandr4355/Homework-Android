@@ -30,26 +30,35 @@
             android:id="@+id/player_computer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:background="@drawable/button_stile"
             android:text="Player/Computer"
-            android:layout_marginTop="16dp"
             android:textColor="#CC000000" />
 
-        <CheckBox
-            android:id="@+id/field_3X3"
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="field size 3x3"
-            android:textColor="@color/black"/>
+            android:layout_height="match_parent" >
 
-        <CheckBox
-            android:id="@+id/field_5x5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="field size 5X5"
-            android:textColor="@color/black"/>
+            <RadioButton
+                android:id="@+id/radioButtonFieldSize3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="field size 3x3"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"/>
+
+            <RadioButton
+                android:id="@+id/radioButtonFieldSize5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="field size 5x5"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"/>
+        </RadioGroup>
+
     </LinearLayout>
 
     <TextView

@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScreenGamePlayerPlayer extends AppCompatActivity {
+public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
 
     private ImageView image1, image2, image3, image4, image5, image6, image7, image8, image9;
     private final List<int[]> combinationList = new ArrayList<>();
@@ -25,7 +25,7 @@ public class ScreenGamePlayerPlayer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_game_player_player);
+        setContentView(R.layout.activity_screen_game_player_player_3x3);
 
         TextView playerOneName = findViewById(R.id.playerOneName);
         TextView playerTwoName = findViewById(R.id.playerTwoName);
@@ -114,7 +114,7 @@ public class ScreenGamePlayerPlayer extends AppCompatActivity {
             imageView.setImageResource(R.drawable.ximage);
 
             if (checkResult()) {
-                ResultDialog resultDialog = new ResultDialog(ScreenGamePlayerPlayer.this, playerOneName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer.this);
+                ResultDialog resultDialog = new ResultDialog(ScreenGamePlayerPlayer3x3.this, playerOneName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer3x3.this);
                 resultDialog.setCancelable(false);
                 resultDialog.show();
 
@@ -122,7 +122,7 @@ public class ScreenGamePlayerPlayer extends AppCompatActivity {
                 scorePlayerA.setText(String.valueOf(currentScoreOne));
 
             } else if (totalSelectBoxes == 9) {
-                ResultDialog resultDialog1 = new ResultDialog(ScreenGamePlayerPlayer.this, "Match Draw", ScreenGamePlayerPlayer.this);
+                ResultDialog resultDialog1 = new ResultDialog(ScreenGamePlayerPlayer3x3.this, "Match Draw", ScreenGamePlayerPlayer3x3.this);
                 resultDialog1.setCancelable(false);
                 resultDialog1.show();
             } else {
@@ -133,7 +133,7 @@ public class ScreenGamePlayerPlayer extends AppCompatActivity {
             imageView.setImageResource(R.drawable.oimage);
 
             if (checkResult()) {
-                ResultDialog resultDialog = new ResultDialog(ScreenGamePlayerPlayer.this, playerTwoName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer.this);
+                ResultDialog resultDialog = new ResultDialog(ScreenGamePlayerPlayer3x3.this, playerTwoName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer3x3.this);
                 resultDialog.setCancelable(false);
                 resultDialog.show();
 
@@ -141,7 +141,7 @@ public class ScreenGamePlayerPlayer extends AppCompatActivity {
                 scorePlayerB.setText(String.valueOf(currentScoreTwo));
 
             } else if (totalSelectBoxes == 9) {
-                ResultDialog resultDialog1 = new ResultDialog(ScreenGamePlayerPlayer.this, "Match Draw", ScreenGamePlayerPlayer.this);
+                ResultDialog resultDialog1 = new ResultDialog(ScreenGamePlayerPlayer3x3.this, "Match Draw", ScreenGamePlayerPlayer3x3.this);
                 resultDialog1.setCancelable(false);
                 resultDialog1.show();
             } else {

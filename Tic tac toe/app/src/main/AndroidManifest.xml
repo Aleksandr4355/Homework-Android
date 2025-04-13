@@ -13,13 +13,16 @@
         android:theme="@style/Theme.TicTacToe"
         tools:targetApi="31">
         <activity
+            android:name=".ScreenGamePlayerPlayer5x5"
+            android:exported="false" />
+        <activity
             android:name=".ResultDialog"
             android:exported="false" />
         <activity
             android:name=".ScreenGamePlayerComputer"
             android:exported="false" />
         <activity
-            android:name=".ScreenGamePlayerPlayer"
+            android:name=".ScreenGamePlayerPlayer3x3"
             android:exported="false" />
         <activity
             android:name=".PlayerComputerComplexity"

@@ -78,7 +78,6 @@
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switchCompat"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="SwitchCompat"
@@ -126,5 +125,168 @@
         android:layout_margin="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/boldChecrBox" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="44dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/boldChecrBox"
+        app:layout_constraintTop_toBottomOf="@+id/sampleText" />
+
+    <Button
+        android:id="@+id/buttonForProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="20dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/progressBar"
+        app:layout_constraintTop_toTopOf="@+id/progressBar"/>
+
+    <ProgressBar
+        android:id="@+id/progressBarHorizontal"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/italicCheckBox2"
+        android:progressDrawable="@drawable/custrom_progress_pb"/>
+
+    <Button
+        android:id="@+id/startHorizontalProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Progress"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarHorizontal" />
+
+    <EditText
+        android:id="@+id/editTextKeyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="16"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startHorizontalProgress" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextKeyword" />
+
+    <Button
+        android:id="@+id/buttonShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Selection"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextKeyword" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="370dp"
+        android:layout_height="140dp"
+        android:background="#F4F2F2"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAdd">
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+    <!--    <ScrollView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/startHorizontalProgress">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <com.google.android.material.chip.ChipGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                app:chipSpacingHorizontal="30dp"-->
+<!--                app:chipSpacingVertical="0dp"-->
+<!--                app:singleLine="true">-->
+
+<!--                <com.google.android.material.chip.Chip-->
+<!--                    android:id="@+id/chip2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:theme="@style/Theme.MaterialComponents.Light"-->
+<!--                    android:text="One" />-->
+
+<!--                <com.google.android.material.chip.Chip-->
+<!--                    android:id="@+id/chip3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:theme="@style/Theme.MaterialComponents.Bridge"-->
+<!--                    android:text="Two" />-->
+
+<!--                <com.google.android.material.chip.Chip-->
+<!--                    android:id="@+id/chip4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/Widget.MaterialComponents.Chip.Entry"-->
+<!--                    android:text="Three" />-->
+
+<!--                <com.google.android.material.chip.Chip-->
+<!--                    android:id="@+id/chip5"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/Widget.MaterialComponents.Chip.Choice"-->
+<!--                    android:text="Four" />-->
+
+<!--                <com.google.android.material.chip.Chip-->
+<!--                    android:id="@+id/chip6"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/Widget.MaterialComponents.Chip.Action"-->
+<!--                    android:text="Five" />-->
+<!--            </com.google.android.material.chip.ChipGroup>-->
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
+
+    <!--    <com.google.android.material.chip.Chip-->
+<!--        android:id="@+id/chip"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="20dp"-->
+<!--        android:text="Chip Action"-->
+<!--        app:chipIcon="@drawable/baseline_adb_24"-->
+<!--        app:closeIconVisible="true"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/startHorizontalProgress" />-->
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

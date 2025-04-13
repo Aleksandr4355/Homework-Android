@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ScreenGamePlayerPlayer"
+    tools:context=".ScreenGamePlayerPlayer3x3"
     android:background="@drawable/mainfon">
 
     <LinearLayout
@@ -94,7 +94,7 @@
     <LinearLayout
         android:layout_width="350dp"
         android:layout_height="350dp"
-        android:background="@drawable/tableimage"
+        android:background="@drawable/tableimage3x3"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

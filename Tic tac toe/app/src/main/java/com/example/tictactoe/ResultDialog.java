@@ -7,22 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class ResultDialog extends Dialog {
 
     private final String message;
-    private  final ScreenGamePlayerPlayer screenGamePlayerPlayer;
+    private  final ScreenGamePlayerPlayer3x3 screenGamePlayerPlayer3x3;
 
-    public ResultDialog(@NonNull Context context, String message,  ScreenGamePlayerPlayer screenGamePlayerPlayer) {
+    public ResultDialog(@NonNull Context context, String message,  ScreenGamePlayerPlayer3x3 screenGamePlayerPlayer3x3) {
         super(context);
         this.message = message;
-        this.screenGamePlayerPlayer = screenGamePlayerPlayer;
+        this.screenGamePlayerPlayer3x3 = screenGamePlayerPlayer3x3;
     }
 
     @Override
@@ -38,7 +33,7 @@ public class ResultDialog extends Dialog {
         startAganeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                screenGamePlayerPlayer.restartMatch();
+                screenGamePlayerPlayer3x3.restartMatch();
                 dismiss();
             }
         });
