@@ -1,4 +1,4 @@
-package com.example.gamexo;
+package com.example.tictactoe;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -18,12 +17,12 @@ import androidx.core.view.WindowInsetsCompat;
 public class ResultDialog extends Dialog {
 
     private final String message;
-    private  final PlayingField playingField;
+    private  final ScreenGamePlayerPlayer screenGamePlayerPlayer;
 
-    public ResultDialog(@NonNull Context context, String message, PlayingField playingField) {
+    public ResultDialog(@NonNull Context context, String message,  ScreenGamePlayerPlayer screenGamePlayerPlayer) {
         super(context);
         this.message = message;
-        this.playingField = playingField;
+        this.screenGamePlayerPlayer = screenGamePlayerPlayer;
     }
 
     @Override
@@ -39,7 +38,7 @@ public class ResultDialog extends Dialog {
         startAganeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                playingField.restartMatch();
+                screenGamePlayerPlayer.restartMatch();
                 dismiss();
             }
         });

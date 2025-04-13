@@ -8,4 +8,188 @@
     tools:context=".ScreenGamePlayerPlayer"
     android:background="@drawable/mainfon">
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="48dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/playerOneName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Player One"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageX"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ximage" />
+
+            <TextView
+                android:id="@+id/scoreOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/playerTwoName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Player Two"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/oimage" />
+
+            <TextView
+                android:id="@+id/scoreTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:background="@drawable/tableimage"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginEnd="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginEnd="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image5"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image6"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image7"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image8"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image9"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+        </LinearLayout>
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

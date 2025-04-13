@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/lavender">
+        android:background="#F0F0F0">
 
         <TextView
             android:id="@+id/messageText"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Result"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginTop="20dp"
             android:textSize="18sp"
             android:textStyle="bold"/>
@@ -30,7 +30,8 @@
             android:layout_height="wrap_content"
             android:text="Start Again"
             android:backgroundTint="@color/white"
-            android:textColor="@color/blue"
+            android:textColor="@color/black"
+            android:background="@drawable/button_stile"
             android:layout_margin="20dp"
             app:cornerRadius = "20dp"/>
 

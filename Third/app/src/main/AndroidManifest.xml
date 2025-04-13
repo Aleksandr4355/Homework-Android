@@ -10,26 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TicTacToe"
+        android:theme="@style/Theme.Third"
         tools:targetApi="31">
-        <activity
-            android:name=".ResultDialog"
-            android:exported="false" />
-        <activity
-            android:name=".ScreenGamePlayerComputer"
-            android:exported="false" />
-        <activity
-            android:name=".ScreenGamePlayerPlayer"
-            android:exported="false" />
-        <activity
-            android:name=".PlayerComputerComplexity"
-            android:exported="false" />
-        <activity
-            android:name=".PlayerNameInput"
-            android:exported="false" />
-        <activity
-            android:name=".EnemySelectionScreen"
-            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
