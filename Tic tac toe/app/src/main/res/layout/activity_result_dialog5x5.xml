@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultDialog3x3">
+    tools:context=".ResultDialog5x5">
 
     <LinearLayout
         android:layout_width="match_parent"

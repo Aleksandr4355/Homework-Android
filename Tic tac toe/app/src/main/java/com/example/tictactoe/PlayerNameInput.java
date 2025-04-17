@@ -42,8 +42,8 @@ public class PlayerNameInput extends AppCompatActivity {
                         intent.putExtra("playerNameOne", getPlayerNameOne);
                         intent.putExtra("playerNameTwo", getPlayerNameTwo);
                         startActivity(intent);
-                    }else  if (getFieldSize.equals("5")){
-                        Intent intent = new Intent(PlayerNameInput.this, ScreenGamePlayerPlayer5x5.class);
+                    }else{
+                        Intent intent = new Intent(PlayerNameInput.this, ScreenGamePlayerPlayer5X5.class);
                         intent.putExtra("playerNameOne", getPlayerNameOne);
                         intent.putExtra("playerNameTwo", getPlayerNameTwo);
                         startActivity(intent);

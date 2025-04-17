@@ -114,17 +114,17 @@ public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
             imageView.setImageResource(R.drawable.ximage);
 
             if (checkResult()) {
-                ResultDialog resultDialog = new ResultDialog(ScreenGamePlayerPlayer3x3.this, playerOneName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer3x3.this);
-                resultDialog.setCancelable(false);
-                resultDialog.show();
+                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGamePlayerPlayer3x3.this, playerOneName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer3x3.this);
+                resultDialog3x3.setCancelable(false);
+                resultDialog3x3.show();
 
                 currentScoreOne++;
                 scorePlayerA.setText(String.valueOf(currentScoreOne));
 
             } else if (totalSelectBoxes == 9) {
-                ResultDialog resultDialog1 = new ResultDialog(ScreenGamePlayerPlayer3x3.this, "Match Draw", ScreenGamePlayerPlayer3x3.this);
-                resultDialog1.setCancelable(false);
-                resultDialog1.show();
+                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGamePlayerPlayer3x3.this, "Match Draw", ScreenGamePlayerPlayer3x3.this);
+                resultDialog3x3.setCancelable(false);
+                resultDialog3x3.show();
             } else {
                 changePlayerTurn(2);
                 totalSelectBoxes++;
@@ -133,17 +133,17 @@ public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
             imageView.setImageResource(R.drawable.oimage);
 
             if (checkResult()) {
-                ResultDialog resultDialog = new ResultDialog(ScreenGamePlayerPlayer3x3.this, playerTwoName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer3x3.this);
-                resultDialog.setCancelable(false);
-                resultDialog.show();
+                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGamePlayerPlayer3x3.this, playerTwoName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer3x3.this);
+                resultDialog3x3.setCancelable(false);
+                resultDialog3x3.show();
 
                 currentScoreTwo++;
                 scorePlayerB.setText(String.valueOf(currentScoreTwo));
 
             } else if (totalSelectBoxes == 9) {
-                ResultDialog resultDialog1 = new ResultDialog(ScreenGamePlayerPlayer3x3.this, "Match Draw", ScreenGamePlayerPlayer3x3.this);
-                resultDialog1.setCancelable(false);
-                resultDialog1.show();
+                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGamePlayerPlayer3x3.this, "Match Draw", ScreenGamePlayerPlayer3x3.this);
+                resultDialog3x3.setCancelable(false);
+                resultDialog3x3.show();
             } else {
                 changePlayerTurn(1);
                 totalSelectBoxes++;

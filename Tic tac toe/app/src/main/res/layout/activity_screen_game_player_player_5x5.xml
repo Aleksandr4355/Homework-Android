@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScreenGamePlayerPlayer5X5"
+    android:background="@drawable/mainfon">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="48dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/playerOneName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Player One"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageX"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ximage" />
+
+            <TextView
+                android:id="@+id/scoreOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/playerTwoName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Player Two"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/oimage" />
+
+            <TextView
+                android:id="@+id/scoreTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="365dp"
+        android:layout_height="365dp"
+        android:background="@drawable/tableimage5x5"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image6"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image11"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image16"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image21"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image7"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image12"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image17"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image22"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image8"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image13"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image18"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image23"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image9"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image14"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image19"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image24"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image5"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image10"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image15"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image20"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+
+            <ImageView
+                android:id="@+id/image25"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="clickTableBox"
+                app:srcCompat="@drawable/classic_box" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
