@@ -30,7 +30,6 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
         setContentView(R.layout.activity_screen_game_player_player_5x5);
 
 
-
         TextView playerOneName = findViewById(R.id.playerOneName);
         TextView playerTwoName = findViewById(R.id.playerTwoName);
 
@@ -76,8 +75,8 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
         combinationList.add(new int[]{2, 7, 12, 17, 22});
         combinationList.add(new int[]{3, 8, 13, 18, 23});
         combinationList.add(new int[]{4, 9, 14, 19, 24});
-        combinationList.add(new int[]{0, 7, 13, 19, 24});
-        combinationList.add(new int[]{5, 9, 13, 17, 21});
+        combinationList.add(new int[]{0, 6, 12, 18, 24});
+        combinationList.add(new int[]{4, 8, 12, 16, 20});
     }
 
     public void clickTableBox(View view) {
@@ -117,67 +116,67 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
             if (isBoxSelectable(8)) {
                 perFormAction((ImageView) view, 8);
             }
-        }else if (view.getId() == R.id.image10) {
+        } else if (view.getId() == R.id.image10) {
             if (isBoxSelectable(9)) {
                 perFormAction((ImageView) view, 9);
             }
-        }else if (view.getId() == R.id.image11) {
+        } else if (view.getId() == R.id.image11) {
             if (isBoxSelectable(10)) {
                 perFormAction((ImageView) view, 10);
             }
-        }else if (view.getId() == R.id.image12) {
+        } else if (view.getId() == R.id.image12) {
             if (isBoxSelectable(11)) {
                 perFormAction((ImageView) view, 11);
             }
-        }else if (view.getId() == R.id.image13) {
+        } else if (view.getId() == R.id.image13) {
             if (isBoxSelectable(12)) {
                 perFormAction((ImageView) view, 12);
             }
-        }else if (view.getId() == R.id.image14) {
+        } else if (view.getId() == R.id.image14) {
             if (isBoxSelectable(13)) {
                 perFormAction((ImageView) view, 13);
             }
-        }else if (view.getId() == R.id.image15) {
+        } else if (view.getId() == R.id.image15) {
             if (isBoxSelectable(14)) {
                 perFormAction((ImageView) view, 14);
             }
-        }else if (view.getId() == R.id.image16) {
+        } else if (view.getId() == R.id.image16) {
             if (isBoxSelectable(15)) {
                 perFormAction((ImageView) view, 15);
             }
-        }else if (view.getId() == R.id.image17) {
+        } else if (view.getId() == R.id.image17) {
             if (isBoxSelectable(16)) {
                 perFormAction((ImageView) view, 16);
             }
-        }else if (view.getId() == R.id.image18) {
+        } else if (view.getId() == R.id.image18) {
             if (isBoxSelectable(17)) {
                 perFormAction((ImageView) view, 17);
             }
-        }else if (view.getId() == R.id.image19) {
+        } else if (view.getId() == R.id.image19) {
             if (isBoxSelectable(18)) {
                 perFormAction((ImageView) view, 18);
             }
-        }else if (view.getId() == R.id.image20) {
+        } else if (view.getId() == R.id.image20) {
             if (isBoxSelectable(19)) {
                 perFormAction((ImageView) view, 19);
             }
-        }else if (view.getId() == R.id.image21) {
+        } else if (view.getId() == R.id.image21) {
             if (isBoxSelectable(20)) {
                 perFormAction((ImageView) view, 20);
             }
-        }else if (view.getId() == R.id.image22) {
+        } else if (view.getId() == R.id.image22) {
             if (isBoxSelectable(21)) {
                 perFormAction((ImageView) view, 21);
             }
-        }else if (view.getId() == R.id.image23) {
+        } else if (view.getId() == R.id.image23) {
             if (isBoxSelectable(22)) {
                 perFormAction((ImageView) view, 22);
             }
-        }else if (view.getId() == R.id.image24) {
+        } else if (view.getId() == R.id.image24) {
             if (isBoxSelectable(23)) {
                 perFormAction((ImageView) view, 23);
             }
-        }else if (view.getId() == R.id.image25) {
+        } else if (view.getId() == R.id.image25) {
             if (isBoxSelectable(24)) {
                 perFormAction((ImageView) view, 24);
             }
@@ -235,6 +234,7 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
             }
         }
     }
+
     private boolean isBoxSelectable(int boxPosition) {
         boolean response = false;
         if (boxPositions[boxPosition] == 0) {
@@ -259,6 +259,7 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
         }
 
     }
+
     private boolean checkResult() {
         boolean response = false;
         for (int i = 0; i < combinationList.size(); i++) {
