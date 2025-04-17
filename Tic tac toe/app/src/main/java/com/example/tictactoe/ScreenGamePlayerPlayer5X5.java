@@ -77,6 +77,7 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
         combinationList.add(new int[]{4, 9, 14, 19, 24});
         combinationList.add(new int[]{0, 6, 12, 18, 24});
         combinationList.add(new int[]{4, 8, 12, 16, 20});
+        
     }
 
     public void clickTableBox(View view) {
