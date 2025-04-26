@@ -9,15 +9,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-public class ResultDialog3x3 extends Dialog {
+public class ResultDialog3x3 <T> extends Dialog {
 
     private final String message;
-    private  final ScreenGamePlayerPlayer3x3 screenGamePlayerPlayer3x3;
+    private  final ScreenGame3x3 screenGame3X3;
 
-    public ResultDialog3x3(@NonNull Context context, String message, ScreenGamePlayerPlayer3x3 screenGamePlayerPlayer3x3) {
+    public ResultDialog3x3(@NonNull Context context, String message, ScreenGame3x3 screenGame3X3) {
         super(context);
         this.message = message;
-        this.screenGamePlayerPlayer3x3 = screenGamePlayerPlayer3x3;
+        this.screenGame3X3 = screenGame3X3;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ResultDialog3x3 extends Dialog {
         startAganeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                screenGamePlayerPlayer3x3.restartMatch();
+                screenGame3X3.restartMatch();
                 dismiss();
             }
         });

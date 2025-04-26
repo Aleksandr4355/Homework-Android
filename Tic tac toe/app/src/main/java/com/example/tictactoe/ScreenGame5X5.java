@@ -10,8 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
-public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
+public class ScreenGame5X5 extends AppCompatActivity {
 
     private ImageView image1, image2, image3, image4, image5, image6, image7, image8, image9, image11, image12, image13, image14, image15, image16, image17, image18, image19, image20, image21, image22, image23, image24, image25, image10;
     private final List<int[]> combinationList = new ArrayList<>();
@@ -21,6 +22,8 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
     private int currentScoreOne = 0;
     private int currentScoreTwo = 0;
 
+    private int numberProgressComputer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +32,21 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_game_player_player_5x5);
 
+        String computer = getIntent().getStringExtra("computer");
 
         TextView playerOneName = findViewById(R.id.playerOneName);
         TextView playerTwoName = findViewById(R.id.playerTwoName);
 
-        String getPlayerOneName = getIntent().getStringExtra("playerNameOne");
-        String getPlayerTwoName = getIntent().getStringExtra("playerNameTwo");
-
-        playerOneName.setText(getPlayerOneName);
-        playerTwoName.setText(getPlayerTwoName);
+        if(computer.equals("0")){
+            String getPlayerOneName = getIntent().getStringExtra("playerNameOne");
+            String getPlayerTwoName = getIntent().getStringExtra("playerNameTwo");
+            playerOneName.setText(getPlayerOneName);
+            playerTwoName.setText(getPlayerTwoName);
+        }else{
+            String getPlayerOneName = getIntent().getStringExtra("playerNameOne");
+            playerOneName.setText(getPlayerOneName);
+            playerTwoName.setText("Computer");
+        }
 
         image1 = findViewById(R.id.image1);
         image2 = findViewById(R.id.image2);
@@ -185,6 +194,16 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
     }
 
     private void perFormAction(ImageView imageView, int selectedBoxPosition) {
+        String computer = getIntent().getStringExtra("computer");
+
+        if (computer.equals("0")) {
+            perFormActionPlayer(imageView, selectedBoxPosition);
+        } else {
+            perFormActionComputer(imageView, selectedBoxPosition);
+        }
+    }
+
+    private void perFormActionPlayer(ImageView imageView, int selectedBoxPosition) {
         boxPositions[selectedBoxPosition] = activePlayer;
         imageView.setBackgroundResource(R.drawable.classic_box);
         imageView.setScaleType(ImageView.ScaleType.CENTER);
@@ -199,17 +218,17 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
             imageView.setImageResource(R.drawable.ximage);
 
             if (checkResult()) {
-                ResultDialog5x5 resultDialog5x5 = new ResultDialog5x5(ScreenGamePlayerPlayer5X5.this, playerOneName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer5X5.this);
-                resultDialog5x5.setCancelable(false);
-                resultDialog5x5.show();
+                ResultDialog5x5 resultDialog = new ResultDialog5x5(ScreenGame5X5.this, playerOneName.getText().toString() + " is a Winner!", ScreenGame5X5.this);
+                resultDialog.setCancelable(false);
+                resultDialog.show();
 
                 currentScoreOne++;
                 scorePlayerA.setText(String.valueOf(currentScoreOne));
 
             } else if (totalSelectBoxes == 25) {
-                ResultDialog5x5 resultDialog5x5 = new ResultDialog5x5(ScreenGamePlayerPlayer5X5.this, "Match Draw", ScreenGamePlayerPlayer5X5.this);
-                resultDialog5x5.setCancelable(false);
-                resultDialog5x5.show();
+                ResultDialog5x5 resultDialog = new ResultDialog5x5(ScreenGame5X5.this, "Match Draw", ScreenGame5X5.this);
+                resultDialog.setCancelable(false);
+                resultDialog.show();
             } else {
                 changePlayerTurn(2);
                 totalSelectBoxes++;
@@ -218,22 +237,72 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
             imageView.setImageResource(R.drawable.oimage);
 
             if (checkResult()) {
-                ResultDialog5x5 resultDialog5x5 = new ResultDialog5x5(ScreenGamePlayerPlayer5X5.this, playerTwoName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer5X5.this);
-                resultDialog5x5.setCancelable(false);
-                resultDialog5x5.show();
+                ResultDialog5x5 resultDialog = new ResultDialog5x5(ScreenGame5X5.this, playerTwoName.getText().toString() + " is a Winner!", ScreenGame5X5.this);
+                resultDialog.setCancelable(false);
+                resultDialog.show();
 
                 currentScoreTwo++;
                 scorePlayerB.setText(String.valueOf(currentScoreTwo));
 
             } else if (totalSelectBoxes == 25) {
-                ResultDialog5x5 resultDialog5x5 = new ResultDialog5x5(ScreenGamePlayerPlayer5X5.this, "Match Draw", ScreenGamePlayerPlayer5X5.this);
-                resultDialog5x5.setCancelable(false);
-                resultDialog5x5.show();
+                ResultDialog5x5 resultDialog = new ResultDialog5x5(ScreenGame5X5.this, "Match Draw", ScreenGame5X5.this);
+                resultDialog.setCancelable(false);
+                resultDialog.show();
             } else {
                 changePlayerTurn(1);
                 totalSelectBoxes++;
             }
         }
+    }
+
+    private void perFormActionComputer(ImageView imageView, int selectedBoxPosition) {
+        TextView playerOneName = findViewById(R.id.playerOneName);
+        TextView scorePlayerA = findViewById(R.id.scoreOne);
+        TextView scorePlayerB = findViewById(R.id.scoreTwo);
+        imageView.setBackgroundResource(R.drawable.classic_box);
+        imageView.setScaleType(ImageView.ScaleType.CENTER);
+
+        boxPositions[selectedBoxPosition] = activePlayer;
+        imageView.setImageResource(R.drawable.ximage);
+
+        if (checkResult()) {
+            ResultDialog5x5 resultDialog5x5 = new ResultDialog5x5(ScreenGame5X5.this, playerOneName.getText().toString() + " is a Winner!", ScreenGame5X5.this);
+            resultDialog5x5.setCancelable(false);
+            resultDialog5x5.show();
+            currentScoreOne++;
+            scorePlayerA.setText(String.valueOf(currentScoreOne));
+        } else if (totalSelectBoxes == 25) {
+            ResultDialog5x5 resultDialog5x5 = new ResultDialog5x5(ScreenGame5X5.this, "Match Draw", ScreenGame5X5.this);
+            resultDialog5x5.setCancelable(false);
+            resultDialog5x5.show();
+        }
+        totalSelectBoxes++;
+        changePlayerTurn(2);
+
+        if (totalSelectBoxes < 25) {
+            progressComputer();
+            if (checkResult()) {
+                ResultDialog5x5 resultDialog5x5 = new ResultDialog5x5(ScreenGame5X5.this, "Computer is a Winner!", ScreenGame5X5.this);
+                resultDialog5x5.setCancelable(false);
+                resultDialog5x5.show();
+                currentScoreTwo++;
+                scorePlayerB.setText(String.valueOf(currentScoreTwo));
+            }
+            totalSelectBoxes++;
+            changePlayerTurn(1);
+        }
+    }
+
+    private void progressComputer() {
+        ImageView[] arrayImage = {image1, image2, image3, image4, image5, image6, image7, image8, image9, image10,image11, image12, image13, image14, image15, image16, image17, image18, image19, image20, image21, image22, image23, image24, image25};
+        Random random = new Random();
+        do {
+            numberProgressComputer = random.nextInt(25);
+        } while (!isBoxSelectable(numberProgressComputer));
+        boxPositions[numberProgressComputer] = activePlayer;
+        arrayImage[numberProgressComputer].setBackgroundResource(R.drawable.classic_box);
+        arrayImage[numberProgressComputer].setScaleType(ImageView.ScaleType.CENTER);
+        arrayImage[numberProgressComputer].setImageResource(R.drawable.oimage);
     }
 
     private boolean isBoxSelectable(int boxPosition) {
@@ -254,7 +323,7 @@ public class ScreenGamePlayerPlayer5X5 extends AppCompatActivity {
         if (activePlayer == 1) {
             playerTwoLayoutOuter.setBackgroundResource(R.drawable.oimage);
             playerOneLayoutOuter.setBackgroundResource(R.drawable.bold_image_x);
-        } else {
+        } else if(activePlayer ==2){
             playerOneLayoutOuter.setBackgroundResource(R.drawable.ximage);
             playerTwoLayoutOuter.setBackgroundResource(R.drawable.bold_image_0);
         }

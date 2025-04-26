@@ -1,5 +1,7 @@
 package com.example.tictactoe;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -9,16 +11,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
+public class ScreenGame3x3 extends AppCompatActivity {
 
     private ImageView image1, image2, image3, image4, image5, image6, image7, image8, image9;
     private final List<int[]> combinationList = new ArrayList<>();
+    private final List<int[]> combinationListComputer = new ArrayList<>();
     private int activePlayer = 1;
     private int[] boxPositions = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     private int totalSelectBoxes = 1;
     private int currentScoreOne = 0;
     private int currentScoreTwo = 0;
+
+    private int numberProgressComputer;
 
 
     @Override
@@ -27,14 +33,22 @@ public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_game_player_player_3x3);
 
+        String computer = getIntent().getStringExtra("computer");
+
         TextView playerOneName = findViewById(R.id.playerOneName);
         TextView playerTwoName = findViewById(R.id.playerTwoName);
 
-        String getPlayerOneName = getIntent().getStringExtra("playerNameOne");
-        String getPlayerTwoName = getIntent().getStringExtra("playerNameTwo");
+        if (computer.equals("0")) {
+            String getPlayerOneName = getIntent().getStringExtra("playerNameOne");
+            String getPlayerTwoName = getIntent().getStringExtra("playerNameTwo");
+            playerOneName.setText(getPlayerOneName);
+            playerTwoName.setText(getPlayerTwoName);
+        } else {
+            String getPlayerOneName = getIntent().getStringExtra("playerNameOne");
+            playerOneName.setText(getPlayerOneName);
+            playerTwoName.setText("Computer");
+        }
 
-        playerOneName.setText(getPlayerOneName);
-        playerTwoName.setText(getPlayerTwoName);
 
         image1 = findViewById(R.id.image1);
         image2 = findViewById(R.id.image2);
@@ -100,6 +114,16 @@ public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
     }
 
     private void perFormAction(ImageView imageView, int selectedBoxPosition) {
+        String computer = getIntent().getStringExtra("computer");
+
+        if (computer.equals("0")) {
+            perFormActionPlayer(imageView, selectedBoxPosition);
+        } else {
+            perFormActionComputer(imageView, selectedBoxPosition);
+        }
+    }
+
+    private void perFormActionPlayer(ImageView imageView, int selectedBoxPosition) {
         boxPositions[selectedBoxPosition] = activePlayer;
         imageView.setBackgroundResource(R.drawable.classic_box);
         imageView.setScaleType(ImageView.ScaleType.CENTER);
@@ -114,7 +138,7 @@ public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
             imageView.setImageResource(R.drawable.ximage);
 
             if (checkResult()) {
-                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGamePlayerPlayer3x3.this, playerOneName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer3x3.this);
+                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGame3x3.this, playerOneName.getText().toString() + " is a Winner!", ScreenGame3x3.this);
                 resultDialog3x3.setCancelable(false);
                 resultDialog3x3.show();
 
@@ -122,7 +146,7 @@ public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
                 scorePlayerA.setText(String.valueOf(currentScoreOne));
 
             } else if (totalSelectBoxes == 9) {
-                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGamePlayerPlayer3x3.this, "Match Draw", ScreenGamePlayerPlayer3x3.this);
+                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGame3x3.this, "Match Draw", ScreenGame3x3.this);
                 resultDialog3x3.setCancelable(false);
                 resultDialog3x3.show();
             } else {
@@ -133,7 +157,7 @@ public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
             imageView.setImageResource(R.drawable.oimage);
 
             if (checkResult()) {
-                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGamePlayerPlayer3x3.this, playerTwoName.getText().toString() + " is a Winner!", ScreenGamePlayerPlayer3x3.this);
+                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGame3x3.this, playerTwoName.getText().toString() + " is a Winner!", ScreenGame3x3.this);
                 resultDialog3x3.setCancelable(false);
                 resultDialog3x3.show();
 
@@ -141,7 +165,7 @@ public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
                 scorePlayerB.setText(String.valueOf(currentScoreTwo));
 
             } else if (totalSelectBoxes == 9) {
-                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGamePlayerPlayer3x3.this, "Match Draw", ScreenGamePlayerPlayer3x3.this);
+                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGame3x3.this, "Match Draw", ScreenGame3x3.this);
                 resultDialog3x3.setCancelable(false);
                 resultDialog3x3.show();
             } else {
@@ -149,6 +173,58 @@ public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
                 totalSelectBoxes++;
             }
         }
+    }
+
+    private void perFormActionComputer(ImageView imageView, int selectedBoxPosition) {
+        TextView playerOneName = findViewById(R.id.playerOneName);
+        TextView scorePlayerA = findViewById(R.id.scoreOne);
+        TextView scorePlayerB = findViewById(R.id.scoreTwo);
+        imageView.setBackgroundResource(R.drawable.classic_box);
+        imageView.setScaleType(ImageView.ScaleType.CENTER);
+
+        boxPositions[selectedBoxPosition] = activePlayer;
+        imageView.setImageResource(R.drawable.ximage);
+
+        if (checkResult()) {
+            ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGame3x3.this, playerOneName.getText().toString() + " is a Winner!", ScreenGame3x3.this);
+            resultDialog3x3.setCancelable(false);
+            resultDialog3x3.show();
+            currentScoreOne++;
+            scorePlayerA.setText(String.valueOf(currentScoreOne));
+        } else if (totalSelectBoxes == 9) {
+            ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGame3x3.this, "Match Draw", ScreenGame3x3.this);
+            resultDialog3x3.setCancelable(false);
+            resultDialog3x3.show();
+        }
+        totalSelectBoxes++;
+        changePlayerTurn(2);
+
+        if (totalSelectBoxes < 9) {
+
+            progressComputer();
+            if (checkResult()) {
+                ResultDialog3x3 resultDialog3x3 = new ResultDialog3x3(ScreenGame3x3.this, "Computer is a Winner!", ScreenGame3x3.this);
+                resultDialog3x3.setCancelable(false);
+                resultDialog3x3.show();
+                currentScoreTwo++;
+                scorePlayerB.setText(String.valueOf(currentScoreTwo));
+            }
+            totalSelectBoxes++;
+            changePlayerTurn(1);
+        }
+    }
+
+    private void progressComputer() {
+        ImageView[] arrayImage = {image1, image2, image3, image4, image5, image6, image7, image8, image9};
+        Random random = new Random();
+
+        do {
+            numberProgressComputer = random.nextInt(9);
+        } while (!isBoxSelectable(numberProgressComputer));
+        boxPositions[numberProgressComputer] = activePlayer;
+        arrayImage[numberProgressComputer].setBackgroundResource(R.drawable.classic_box);
+        arrayImage[numberProgressComputer].setScaleType(ImageView.ScaleType.CENTER);
+        arrayImage[numberProgressComputer].setImageResource(R.drawable.oimage);
     }
 
     private boolean isBoxSelectable(int boxPosition) {
@@ -165,7 +241,6 @@ public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
         ImageView playerOneLayoutOuter = findViewById(R.id.imageX);
         ImageView playerTwoLayoutOuter = findViewById(R.id.imageO);
 
-
         if (activePlayer == 1) {
             playerTwoLayoutOuter.setBackgroundResource(R.drawable.oimage);
             playerOneLayoutOuter.setBackgroundResource(R.drawable.bold_image_x);
@@ -173,9 +248,9 @@ public class ScreenGamePlayerPlayer3x3 extends AppCompatActivity {
             playerOneLayoutOuter.setBackgroundResource(R.drawable.ximage);
             playerTwoLayoutOuter.setBackgroundResource(R.drawable.bold_image_0);
         }
-
     }
-     private boolean checkResult() {
+
+    private boolean checkResult() {
         boolean response = false;
         for (int i = 0; i < combinationList.size(); i++) {
             final int[] combination = combinationList.get(i);

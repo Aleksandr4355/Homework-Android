@@ -2,5 +2,6 @@
     <string name="app_name">GameQuiz</string>
     <string name="start">Начать</string>
     <string name="Back">Назад</string>
-    <string name="level">Уровень:</string>
+    <string name="level">Уровень 1</string>
+    <string name="Text_continue">Продолжить</string>
 </resources>

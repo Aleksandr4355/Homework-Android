@@ -13,22 +13,19 @@
         android:theme="@style/Theme.TicTacToe"
         tools:targetApi="31" >
         <activity
+            android:name=".PlayerNameInputComputer"
+            android:exported="false" />
+        <activity
             android:name=".ResultDialog5x5"
             android:exported="false" />
         <activity
-            android:name=".ScreenGamePlayerPlayer5X5"
+            android:name=".ScreenGame5X5"
             android:exported="false" />
         <activity
             android:name=".ResultDialog3x3"
             android:exported="false" />
         <activity
-            android:name=".ScreenGamePlayerComputer"
-            android:exported="false" />
-        <activity
-            android:name=".ScreenGamePlayerPlayer3x3"
-            android:exported="false" />
-        <activity
-            android:name=".PlayerComputerComplexity"
+            android:name=".ScreenGame3x3"
             android:exported="false" />
         <activity
             android:name=".PlayerNameInput"

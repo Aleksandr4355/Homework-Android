@@ -42,7 +42,7 @@ public class EnemySelectionScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!fieldSize.equals("0")) {
-                        Intent intent = new Intent(EnemySelectionScreen.this, PlayerComputerComplexity.class);
+                        Intent intent = new Intent(EnemySelectionScreen.this, PlayerNameInputComputer.class);
                         intent.putExtra("fieldSizeComputer", fieldSize);
                         startActivity(intent);
                 }else {
@@ -52,6 +52,7 @@ public class EnemySelectionScreen extends AppCompatActivity {
         });
 
         RadioGroup radioGroup = findViewById(R.id.radioGroup);
+
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
