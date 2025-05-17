@@ -36,7 +36,7 @@
                     android:background="@drawable/button_stroke_dark_red_press_white"
                     android:paddingStart="30dp"
                     android:paddingEnd="30dp"
-                    android:text="@string/Back"
+                    android:text="@string/back"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:layout_marginBottom="20dp"
