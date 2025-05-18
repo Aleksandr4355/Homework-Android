@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">The Monty Hall Show</string>
+    <string name="dialog_preview_text">"Добро пожаловать на шоу Монти Холла! Я ведущий этого шоу Монти Холл. Испытай свою удачу, найдите в каком сейфе спратаны сокровища. Хватит пустых слов начнем же игру."</string>
+    <string name="dialog_text_victory">"Поздравляю, вы выйграли!"</string>
+    <string name="dialog_text_lose">"Оу, какая жалость вы проиграли!"</string>
+    <string name="Continue">Продолжить</string>
 </resources>
