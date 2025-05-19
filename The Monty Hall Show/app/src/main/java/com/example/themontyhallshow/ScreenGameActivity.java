@@ -1,5 +1,7 @@
 package com.example.themontyhallshow;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -69,6 +71,9 @@ public class ScreenGameActivity extends AppCompatActivity {
 //                    arrayImageView[number].setBackgroundResource(R.drawable.animation_turn_handle);
 //                    ((AnimationDrawable)  arrayImageView[number].getDrawable()).start();
 
+                    if (countCloseSafe == 0){
+                        windowsDialog("И так вы выбрали один из сейфов. Теперь я после каждого вашего хода, буду открывать один пустой сейф. Запомните у вас есть право сменить выбраный сейф. Желаю удачи дорогой гость. ");
+                    }
                     arrayImageView[number].setImageResource(R.drawable.safe_empty);
                     countCloseSafe++;
                 }
@@ -261,12 +266,17 @@ public class ScreenGameActivity extends AppCompatActivity {
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(countCloseSafe == 3){
+                    Intent intent = new Intent(ScreenGameActivity.this, ScreenGameActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                }
                 dialog.dismiss();  // закрытие диалогового окна
             }
         });
         textDialog.setText(text);
         dialog.show();  // показать диалоговое окно
-        dialog.getWindow().setLayout(1800, 1000);
+        dialog.getWindow().setLayout(1600, 900);
     }
     private void startAnimationOpenLuke() {
         animationDrawable1.start();

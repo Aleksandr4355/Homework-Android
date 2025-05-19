@@ -25,8 +25,9 @@
             android:text="&lt;"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/whiteButton"
             android:layout_gravity="start"
+            android:background="@drawable/style_btn_close_dialog"
             />
 
         <TextView
@@ -34,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dialog_preview_text"
-            android:layout_weight="60"
+            android:layout_weight="30"
             android:textSize="24sp"
             android:textColor="@color/black"
             android:layout_marginTop="10dp"
@@ -46,13 +47,13 @@
             android:layout_height="wrap_content"
             android:text="@string/Continue"
             android:layout_weight="5"
-            android:textColor="@color/white"
+            android:textColor="#EBEBEB"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:textSize="24sp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/violet_black"/>
+            android:background="@drawable/style_btn_continue_dialog"/>
 
 
     </LinearLayout>
