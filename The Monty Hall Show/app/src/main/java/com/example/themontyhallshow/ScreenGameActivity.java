@@ -268,7 +268,6 @@ public class ScreenGameActivity extends AppCompatActivity {
         dialog.show();  // показать диалоговое окно
         dialog.getWindow().setLayout(1800, 1000);
     }
-
     private void startAnimationOpenLuke() {
         animationDrawable1.start();
         animationDrawable2.start();

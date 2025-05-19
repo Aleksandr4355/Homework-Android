@@ -15,6 +15,5 @@
 
         <item android:id="@+id/fourth_page"
             android:title="Fourth Page"/>
-
     </group>
 </menu>
