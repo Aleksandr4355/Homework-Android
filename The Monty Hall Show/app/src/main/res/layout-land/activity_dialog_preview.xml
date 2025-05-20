@@ -53,7 +53,7 @@
             android:textSize="24sp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/style_btn_continue_dialog"/>
+            android:background="@drawable/style_button_continue_dialog"/>
 
 
     </LinearLayout>

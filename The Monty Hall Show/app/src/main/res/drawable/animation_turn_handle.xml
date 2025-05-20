@@ -3,26 +3,26 @@
     android:oneshot="true">
     <item
         android:drawable="@drawable/turn_handle_animation_1"
-        android:duration="1000" />
+        android:duration="300" />
     <item
         android:drawable="@drawable/turn_handle_animation_2"
-        android:duration="100" />
+        android:duration="300" />
     <item
         android:drawable="@drawable/turn_handle_animation_3"
-        android:duration="100" />
+        android:duration="300" />
     <item
         android:drawable="@drawable/turn_handle_animation_4"
-        android:duration="100" />
+        android:duration="300" />
     <item
         android:drawable="@drawable/turn_handle_animation_1"
-        android:duration="100" />
+        android:duration="300" />
     <item
         android:drawable="@drawable/turn_handle_animation_2"
-        android:duration="100" />
+        android:duration="300" />
     <item
         android:drawable="@drawable/turn_handle_animation_3"
-        android:duration="100" />
+        android:duration="300" />
     <item
         android:drawable="@drawable/turn_handle_animation_4"
-        android:duration="100" />
+        android:duration="300" />
 </animation-list>

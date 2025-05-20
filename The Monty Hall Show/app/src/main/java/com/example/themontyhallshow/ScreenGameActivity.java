@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -58,6 +59,8 @@ public class ScreenGameActivity extends AppCompatActivity {
 
         numberVictory = random.nextInt(5);
 
+        stopAnimationOpenLuke();
+
         // обработка нажатия на первую кнопку
         imageView1.setOnClickListener(v -> {
             if (countCloseSafe != 3) {
@@ -69,11 +72,13 @@ public class ScreenGameActivity extends AppCompatActivity {
 
                     // анимация поворота вентиля
 //                    arrayImageView[number].setBackgroundResource(R.drawable.animation_turn_handle);
-//                    ((AnimationDrawable)  arrayImageView[number].getDrawable()).start();
+//                    ((AnimationDrawable) arrayImageView[number].getDrawable()).start();
+
 
                     if (countCloseSafe == 0){
                         windowsDialog("И так вы выбрали один из сейфов. Теперь я после каждого вашего хода, буду открывать один пустой сейф. Запомните у вас есть право сменить выбраный сейф. Желаю удачи дорогой гость. ");
                     }
+
                     arrayImageView[number].setImageResource(R.drawable.safe_empty);
                     countCloseSafe++;
                 }
@@ -103,6 +108,11 @@ public class ScreenGameActivity extends AppCompatActivity {
                         number = random.nextInt(5);
                     } while (numberVictory == number || arraySafe[number] == 1 || number == 1);
                     arraySafe[number] = 1;
+
+                    // анимация поворота вентиля
+//                    arrayImageView[number].setBackgroundResource(R.drawable.animation_turn_handle);
+//                    ((AnimationDrawable) arrayImageView[number].getDrawable()).start();
+
                     arrayImageView[number].setImageResource(R.drawable.safe_empty);
                     countCloseSafe++;
                 }
@@ -132,6 +142,11 @@ public class ScreenGameActivity extends AppCompatActivity {
                         number = random.nextInt(5);
                     } while (numberVictory == number || arraySafe[number] == 1 || number == 2);
                     arraySafe[number] = 1;
+
+                    // анимация поворота вентиля
+//                    arrayImageView[number].setBackgroundResource(R.drawable.animation_turn_handle);
+//                    ((AnimationDrawable) arrayImageView[number].getDrawable()).start();
+
                     arrayImageView[number].setImageResource(R.drawable.safe_empty);
                     countCloseSafe++;
                 }
@@ -161,6 +176,11 @@ public class ScreenGameActivity extends AppCompatActivity {
                         number = random.nextInt(5);
                     } while (numberVictory == number || arraySafe[number] == 1 || number == 3);
                     arraySafe[number] = 1;
+
+                    // анимация поворота вентиля
+//                    arrayImageView[number].setBackgroundResource(R.drawable.animation_turn_handle);
+//                    ((AnimationDrawable) arrayImageView[number].getDrawable()).start();
+
                     arrayImageView[number].setImageResource(R.drawable.safe_empty);
                     countCloseSafe++;
                 }
@@ -190,6 +210,11 @@ public class ScreenGameActivity extends AppCompatActivity {
                         number = random.nextInt(5);
                     } while (numberVictory == number || arraySafe[number] == 1 || number == 4);
                     arraySafe[number] = 1;
+
+                    // анимация поворота вентиля
+//                    arrayImageView[number].setBackgroundResource(R.drawable.animation_turn_handle);
+//                    ((AnimationDrawable) arrayImageView[number].getDrawable()).start();
+
                     arrayImageView[number].setImageResource(R.drawable.safe_empty);
                     countCloseSafe++;
                 }
@@ -284,5 +309,12 @@ public class ScreenGameActivity extends AppCompatActivity {
         animationDrawable3.start();
         animationDrawable4.start();
         animationDrawable5.start();
+    }
+    private void stopAnimationOpenLuke() {
+        animationDrawable1.stop();
+        animationDrawable2.stop();
+        animationDrawable3.stop();
+        animationDrawable4.stop();
+        animationDrawable5.stop();
     }
 }
