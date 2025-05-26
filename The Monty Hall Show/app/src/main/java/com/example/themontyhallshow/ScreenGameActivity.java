@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -113,6 +114,9 @@ public class ScreenGameActivity extends AppCompatActivity {
 //                    arrayImageView[number].setBackgroundResource(R.drawable.animation_turn_handle);
 //                    ((AnimationDrawable) arrayImageView[number].getDrawable()).start();
 
+                    if (countCloseSafe == 0){
+                        windowsDialog("И так вы выбрали один из сейфов. Теперь я после каждого вашего хода, буду открывать один пустой сейф. Запомните у вас есть право сменить выбраный сейф. Желаю удачи дорогой гость. ");
+                    }
                     arrayImageView[number].setImageResource(R.drawable.safe_empty);
                     countCloseSafe++;
                 }
@@ -146,6 +150,10 @@ public class ScreenGameActivity extends AppCompatActivity {
                     // анимация поворота вентиля
 //                    arrayImageView[number].setBackgroundResource(R.drawable.animation_turn_handle);
 //                    ((AnimationDrawable) arrayImageView[number].getDrawable()).start();
+
+                    if (countCloseSafe == 0){
+                        windowsDialog("И так вы выбрали один из сейфов. Теперь я после каждого вашего хода, буду открывать один пустой сейф. Запомните у вас есть право сменить выбраный сейф. Желаю удачи дорогой гость. ");
+                    }
 
                     arrayImageView[number].setImageResource(R.drawable.safe_empty);
                     countCloseSafe++;
@@ -181,6 +189,11 @@ public class ScreenGameActivity extends AppCompatActivity {
 //                    arrayImageView[number].setBackgroundResource(R.drawable.animation_turn_handle);
 //                    ((AnimationDrawable) arrayImageView[number].getDrawable()).start();
 
+
+                    if (countCloseSafe == 0){
+                        windowsDialog("И так вы выбрали один из сейфов. Теперь я после каждого вашего хода, буду открывать один пустой сейф. Запомните у вас есть право сменить выбраный сейф. Желаю удачи дорогой гость. ");
+                    }
+
                     arrayImageView[number].setImageResource(R.drawable.safe_empty);
                     countCloseSafe++;
                 }
@@ -215,6 +228,10 @@ public class ScreenGameActivity extends AppCompatActivity {
 //                    arrayImageView[number].setBackgroundResource(R.drawable.animation_turn_handle);
 //                    ((AnimationDrawable) arrayImageView[number].getDrawable()).start();
 
+                    if (countCloseSafe == 0){
+                        windowsDialog("И так вы выбрали один из сейфов. Теперь я после каждого вашего хода, буду открывать один пустой сейф. Запомните у вас есть право сменить выбраный сейф. Желаю удачи дорогой гость. ");
+                    }
+
                     arrayImageView[number].setImageResource(R.drawable.safe_empty);
                     countCloseSafe++;
                 }
@@ -241,7 +258,9 @@ public class ScreenGameActivity extends AppCompatActivity {
         dialog = new Dialog(this);  // создаем новое диалоговое окно
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // скрываем заголовок
         dialog.setContentView(R.layout.activity_dialog_preview);
-        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));  // прозрачный фон диалогового окна
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));  // прозрачный фон диалогового окна
+        }
         dialog.setCancelable(false);  // окно нельзя закрыть кликом за пределами окна
         textDialog = dialog.findViewById(R.id.text_dialog);
 
@@ -266,14 +285,16 @@ public class ScreenGameActivity extends AppCompatActivity {
             }
         });
         dialog.show();  // показать диалоговое окно
-        dialog.getWindow().setLayout(1800, 1000);
+//        dialog.getWindow().setLayout(1600, 900);
     }
     private void windowsDialog(String text) {
         // вызов диалогового окна в начале игры
         dialog = new Dialog(this);  // создаем новое диалоговое окно
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // скрываем заголовок
         dialog.setContentView(R.layout.activity_dialog_preview);
-        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));  // прозрачный фон диалогового окна
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));  // прозрачный фон диалогового окна
+        }
         dialog.setCancelable(false);  // окно нельзя закрыть кликом за пределами окна
         textDialog = dialog.findViewById(R.id.text_dialog);
 
@@ -301,7 +322,7 @@ public class ScreenGameActivity extends AppCompatActivity {
         });
         textDialog.setText(text);
         dialog.show();  // показать диалоговое окно
-        dialog.getWindow().setLayout(1600, 900);
+//        dialog.getWindow().setLayout(1600, 900);
     }
     private void startAnimationOpenLuke() {
         animationDrawable1.start();

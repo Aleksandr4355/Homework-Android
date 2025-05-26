@@ -6,4 +6,13 @@
     </style>
 
     <style name="Theme.FragmentMenuApplication" parent="Base.Theme.FragmentMenuApplication" />
+
+    <style name="dialogAnimatib" >
+        <item name="android:windowEnterAnimation">
+            @anim/slaid_in
+        </item>
+        <item name="android:windowExitAnimation">
+            @anim/slaid_out
+        </item>
+    </style>
 </resources>
