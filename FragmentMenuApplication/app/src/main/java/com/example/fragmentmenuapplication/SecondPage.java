@@ -15,7 +15,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 import android.widget.TimePicker;
+import android.widget.ViewSwitcher;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,6 +34,12 @@ import java.util.List;
  */
 public class SecondPage extends Fragment {
     EditText date,time;
+
+    ImageButton  beforceButton, nextButton;
+    ImageSwitcher imageSwitcher;
+
+    int index = 0;
+    int [] mas = {R.drawable.inedible_1,R.drawable.inedible_5,R.drawable.inedible_7,R.drawable.edible_3};
     DatePickerDialog.OnDateSetListener dateSetListener;
     TimePickerDialog.OnTimeSetListener timeSetListener;
     Calendar calendar;
@@ -72,6 +82,37 @@ public class SecondPage extends Fragment {
             editText.setText("");
             adapter.notifyDataSetChanged();
         });
+
+        beforceButton= view.findViewById(R.id.before);
+        nextButton = view.findViewById(R.id.next);
+        imageSwitcher = view.findViewById(R.id.imageSwitcher);
+
+        beforceButton.setOnClickListener(v -> {
+            index--;
+            if (index < 0){
+                index = mas.length-1;
+            }
+            imageSwitcher.setImageResource(mas[index]);
+        });
+        nextButton.setOnClickListener(v -> {
+            index++;
+            if (index == mas.length){
+                index = 0;
+            }
+            imageSwitcher.setImageResource(mas[index]);
+        });
+        imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                ImageView imageView = new ImageView(getActivity().getApplicationContext());
+                imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                imageView.setMaxWidth(250);
+                imageView.setMaxWidth(350);
+                return imageView;
+            }
+        });
+
+        imageSwitcher.setImageResource(mas[index]);
 
         return view;
     }

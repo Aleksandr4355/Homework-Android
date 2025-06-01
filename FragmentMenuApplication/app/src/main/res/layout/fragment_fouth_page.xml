@@ -1,19 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".FouthPage">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/textViewNumberPicked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fouth page"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:text="Number Picked"
+        android:textSize="30sp"
+        android:layout_marginTop="140dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <NumberPicker
+        android:id="@+id/number_picked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textViewNumberPicked" />
+
+    <TextView
+        android:id="@+id/textViewCountryPicked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Contry Picked"
+        android:textSize="30sp"
+        android:layout_marginTop="80dp"
+        android:layout_below="@id/number_picked"/>
+
+    <NumberPicker
+        android:id="@+id/city_picked"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textViewCountryPicked" />
+</RelativeLayout>
