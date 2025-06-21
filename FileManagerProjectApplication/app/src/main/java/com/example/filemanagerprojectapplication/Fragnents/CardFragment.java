@@ -85,11 +85,11 @@ public class CardFragment extends Fragment implements OnFileSelectedListener {
             if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
             }
-            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                displayFiles();
-            }
+//            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+//                displayFiles();
+//            }
             if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
             }
             if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 displayFiles();
@@ -164,12 +164,12 @@ public class CardFragment extends Fragment implements OnFileSelectedListener {
                     .replace(R.id.fragment_container, cardFragment)
                     .addToBackStack(null).commit();
         } else {
-            try{
+            try {
                 FileOpener.openFile(getContext(), file);
-            }catch (Exception e){
+            } catch (Exception e) {
                 Toast.makeText(getContext(), "Unable to open file", Toast.LENGTH_SHORT).show();
             }
-            
+
         }
     }
 
@@ -216,46 +216,88 @@ public class CardFragment extends Fragment implements OnFileSelectedListener {
                         break;
 
 
+//                    case "Rename":
+//                        AlertDialog.Builder renameDialog = new AlertDialog.Builder(getContext());
+//                        renameDialog.setTitle("Rename file: ");
+//                        final EditText name = new EditText(getContext());
+//                        renameDialog.setView(name);
+//
+//                        renameDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                String newName = name.getEditableText().toString();
+//                                File current = new File(file.getAbsolutePath());
+//                                File destinationSdCard;
+//
+//                                if (!file.isDirectory()) {
+//                                    String extension = file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("."));
+//                                    destinationSdCard = new File(file.getAbsolutePath().replace(file.getName(), newName) + extension);
+//                                } else {
+//                                    destinationSdCard = new File(file.getAbsolutePath().replace(file.getName(), newName));
+//                                }
+//
+//                                if (current.renameTo(destinationSdCard)) {
+//                                    fileList.set(position, destinationSdCard);
+//                                    fileAdapter.notifyItemChanged(position);
+//                                    Toast.makeText(getContext(), "Renamed!", Toast.LENGTH_SHORT).show();
+//                                    displayFiles();
+//                                } else {
+//                                    Toast.makeText(getContext(), "Couldn't Rename!", Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        });
+//
+//                        renameDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                optionDialog.cancel();
+//                            }
+//                        });
+//
+//                        AlertDialog alertDialogRename = renameDialog.create();
+//                        alertDialogRename.show();
+//                        break;
+
+//========================================RENAME====================================================
+                    // если нажали Rename
                     case "Rename":
-                        AlertDialog.Builder renameDialog = new AlertDialog.Builder(getContext());
-                        renameDialog.setTitle("Rename file: ");
+                        AlertDialog.Builder renameDialog = new AlertDialog.Builder(getContext());// renameDialog просто название
+                        renameDialog.setTitle("Rename File:");
                         final EditText name = new EditText(getContext());
                         renameDialog.setView(name);
 
-                        renameDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        // добавляем кнопку Ок с обработчиком нажатия на нее
+                        renameDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                String newName = name.getEditableText().toString();
-                                File current = new File(file.getAbsolutePath());
-                                File destinationSdCard;
-
-                                if (!file.isDirectory()) {
-                                    String extension = file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("."));
-                                    destinationSdCard = new File(file.getAbsolutePath().replace(file.getName(), newName) + extension);
-                                } else {
-                                    destinationSdCard = new File(file.getAbsolutePath().replace(file.getName(), newName));
+                                // Шаг 1: Получаем новое имя от пользователя
+                                String newName = name.getEditableText().toString().trim();
+                                File parentDir = file.getParentFile();
+                                String extension = "";
+                                if (file.isFile()) {
+                                    int dotIndex = file.getName().lastIndexOf(".");
+                                    if (dotIndex != -1) {
+                                        extension = file.getName().substring(dotIndex);
+                                    }
                                 }
-
-                                if (current.renameTo(destinationSdCard)) {
-                                    fileList.set(position, destinationSdCard);
-                                    fileAdapter.notifyItemChanged(position);
+                                File destination = new File(parentDir, newName + extension);
+                                if (file.renameTo(destination)) {
                                     Toast.makeText(getContext(), "Renamed!", Toast.LENGTH_SHORT).show();
                                     displayFiles();
                                 } else {
-                                    Toast.makeText(getContext(), "Couldn't Rename!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(), "Rename Error!", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
-
+                        // добавляем кнопку Cancel с обработчиком нажатия на нее
                         renameDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                optionDialog.cancel();
+                                optionDialog.cancel(); // жмем Cancel и окно Rename закрывается
                             }
                         });
-
-                        AlertDialog alertDialogRename = renameDialog.create();
-                        alertDialogRename.show();
+                        AlertDialog alertDialogRenaime = renameDialog.create(); //вызываем AlertDialog. это для Renaim
+                        alertDialogRenaime.show();
                         break;
 
 
@@ -278,7 +320,6 @@ public class CardFragment extends Fragment implements OnFileSelectedListener {
                                 optionDialog.cancel();
                             }
                         });
-
                         AlertDialog alertDialogDelete = deleteDialog.create();
                         alertDialogDelete.show();
                 }

@@ -218,7 +218,6 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 String newName = name.getEditableText().toString();
-
                                 File current = new File(file.getAbsolutePath());
                                 File destination;
                                 if (!file.isDirectory()) {
