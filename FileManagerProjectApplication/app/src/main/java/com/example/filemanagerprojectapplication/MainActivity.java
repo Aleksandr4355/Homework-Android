@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState(); //добовляет иконку меню  стандартного вида.
 
-        replaceFragment(new InternalFragment());
+        replaceFragment(new CardFragment());
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
