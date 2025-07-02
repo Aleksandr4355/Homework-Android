@@ -1,0 +1,21 @@
+CREATE TABLE student(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    surname TEXT NOT NULL,
+    name TEXT NOT NULL,
+    patronymic TEXT NOT NULL,
+    age INTEGER NOT NULL CHECK(age >= 17 AND age <= 50)
+);
+
+CREATE TABLE lessons(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    lesson_title_1 TEXT NOT NULL,
+    lesson_title_2 TEXT NOT NULL
+);
+ 
+CREATE TABLE association(
+    lesson_id INTEGER,
+    student_id INTEGER,
+    PRIMARY KEY (lesson_id, student_id)
+    FOREIGN KEY (lesson_id) REFERENCES lessons(id)
+    FOREIGN KEY (student_id) REFERENCES student(id)
+);
