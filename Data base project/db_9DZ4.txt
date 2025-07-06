@@ -1,11 +1,11 @@
-1.Выведите список студентов физико-математического факультета.
+1.	Выведите список студентов физико-математического факультета.
 
 SELECT s.FIO
 FROM Student s, G g, Kafedra k
 WHERE k.Decanat = "Физико-математический" AND 
 k.Kafedra = g.Kafedra AND 
 s."Group" = g."Group";
----------------------------------------
+ 
 SELECT FIO
 FROM Student
 WHERE "Group" IN
@@ -18,7 +18,7 @@ WHERE "Group" IN
                )
        );
 
-2.Студенты какой кафедры и факультета сдавали социологию.
+2.	Студенты какой кафедры и факультета сдавали социологию.
 
 SELECT k.Kafedra, k.Decanat, s.FIO
 FROM Kafedra k, Exzamen e, Student s, G g
@@ -26,7 +26,7 @@ WHERE e.Predmet GLOB "Социология" AND
 e.Id_St = s.Id_St AND 
 s."Group" = g."Group" AND 
 g.Kafedra = k.Kafedra;
--------------------------------------------
+
 SELECT Kafedra, Decanat 
 FROM Kafedra 
 WHERE Kafedra IN 
@@ -39,7 +39,7 @@ WHERE Kafedra IN
                        (SELECT Id_St 
                          FROM Exzamen 
                          WHERE Predmet='Социология' )));
-----------------------------------------------
+
 SELECT Kafedra, Decanat, (SELECT FIO
                            FROM Kafedra k, Exzamen e, Student s, G g
                            WHERE e.Predmet GLOB "Социология" AND 
@@ -57,7 +57,7 @@ WHERE Kafedra IN
                        (SELECT Id_St 
                          FROM Exzamen 
                          WHERE Predmet='Социология' )));
------------------------------------------------------------------                 
+             
 SELECT Kafedra, Decanat, (SELECT FIO 
                           FROM Student 
                           WHERE ID_St = (SELECT Id_St 
@@ -141,7 +141,7 @@ WHERE Id_St IN
 SELECT COUNT (Special), Special
 FROM Student
 GROUP BY Special
--------------------------------------
+
 SELECT Special, COUNT (FIO)
 FROM Student
 GROUP BY Special
@@ -194,7 +194,7 @@ WHERE Kafedra IN (SELECT Kafedra
 SELECT Decanat, COUNT (Kafedra)
 FROM Kafedra
 GROUP BY Decanat 
----------------------------------
+
 SELECT Decanat, COUNT (Kafedra)
 FROM Kafedra
 GROUP BY Decanat
