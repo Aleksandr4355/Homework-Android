@@ -1,5 +1,7 @@
 package com.example.sqlapplication;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.LinkedList;
 
 public class HelperActivity extends AppCompatActivity {
 
@@ -49,7 +53,17 @@ public class HelperActivity extends AppCompatActivity {
             eYear.setText("");
         });
 
+        btnGet.setOnClickListener(v -> {
+            LinkedList<Data> list = dbHeLper.getAll();
+            String text = "";
+            for(Data d : list){
+                text = text  + d.name + " " + d.surname + " " + d.age + "\n";
+            }
+            tvOut.setText(text);
+        });
 
-
+        btnDel.setOnClickListener(v -> {
+            dbHeLper.deleteAll();
+        });
     }
 }
