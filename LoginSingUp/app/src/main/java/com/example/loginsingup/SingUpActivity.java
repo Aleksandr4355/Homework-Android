@@ -23,7 +23,7 @@ public class SingUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_up);
 
-        emailSingUp =findViewById(R.id.sing_up_email);
+        emailSingUp = findViewById(R.id.sing_up_email);
         passwordSingUP = findViewById(R.id.sign_up_password);
         passwordConfirmSingUp = findViewById(R.id.sing_up_confirm_password);
 
@@ -33,33 +33,34 @@ public class SingUpActivity extends AppCompatActivity {
 
         insertUser();
     }
-    private  void  insertUser(){
+
+    private void insertUser() {
         singUpButton.setOnClickListener(v -> {
             String email = emailSingUp.getText().toString();
             String password = passwordSingUP.getText().toString();
             String confirmPassword = passwordConfirmSingUp.getText().toString();
 
-            if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()){
-                Toast.makeText(this, "ALL fields are mandatory", Toast.LENGTH_SHORT).show();
-            }else{
-                if(password.equals(confirmPassword)){
+            if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                Toast.makeText(SingUpActivity.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
+            } else {
+                if (password.equals(confirmPassword)) {
                     boolean checkUserEmail = myDB.checkEmail(email);
-                    if (!checkUserEmail){
+                    if (!checkUserEmail) {
                         boolean insert = myDB.registerUser(email, password);
-                        if(insert){
-                            Toast.makeText(this, "Пользователь успешно зарегистрирован", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(this, LoginActivity.class);
+                        if (insert) {
+                            Toast.makeText(SingUpActivity.this, "User Register Successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SingUpActivity.this, LoginActivity.class);
                             startActivity(intent);
-                        }else {
-                            Toast.makeText(this, "Ошибка регистрации", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(SingUpActivity.this, "Register Error", Toast.LENGTH_SHORT).show();
                         }
-                    }else {
-                        Toast.makeText(this, "Пользователь с таким емаилом зарегистрирован", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(SingUpActivity.this, "User already exists. Please login", Toast.LENGTH_SHORT).show();
                     }
-                }else{
-                    Toast.makeText(this, "Invalid password", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SingUpActivity.this, "Invalid Password", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
-    }
+    });
+}
 }

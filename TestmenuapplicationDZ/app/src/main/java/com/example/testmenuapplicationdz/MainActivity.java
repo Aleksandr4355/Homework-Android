@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, materialToolbar, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(toggle);
 
-        replaceFragment(new FragmentSetting()); // запуск окна с самого начала
+        replaceFragment(new FragmentCircleOfLife()); // запуск окна с самого начала
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -56,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
                     drawerLayout.closeDrawer(GravityCompat.START);
                 }else if(item.getItemId() == R.id.setting){
                     replaceFragment(new FragmentSetting());
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }else if(item.getItemId() == R.id.loginIN){
+                    replaceFragment(new FragmentLoginIN());
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }else if(item.getItemId() == R.id.registration){
+                    replaceFragment(new FragmentRegist());
                     drawerLayout.closeDrawer(GravityCompat.START);
                 }
                 return false;

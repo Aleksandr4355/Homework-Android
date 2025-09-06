@@ -33,6 +33,4 @@ public class FragmentSetting extends Fragment {
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
         return view;
     }
-
-
 }
