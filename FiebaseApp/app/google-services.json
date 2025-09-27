@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "380789283094",
+    "project_id": "fir-up-2d764",
+    "storage_bucket": "fir-up-2d764.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380789283094:android:a1184fb3712fa192071837",
+        "android_client_info": {
+          "package_name": "com.example.fiebaseapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCjtdi4I-46hYNEctjW3UvGsqnHuR7wpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
